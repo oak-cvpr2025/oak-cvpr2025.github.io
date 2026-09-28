@@ -178,7 +178,7 @@
       </p>
       <br>
       <p>
-        <img src="static/images/teaser.png" alt="Open ad-hoc categorization" class="blend-img-background center-image" style="max-width: 100%; height: auto;" />
+        <img src="static/images/teaser.png" alt="Open ad-hoc categorization" class="blend-img-background center-image" style="display:block; width:85%; max-width:100%; height:auto; margin:0 auto;" />
       </p>
       <br>
       <p>
@@ -193,6 +193,43 @@
 </section>
 
 <!-- End teaser figure -->
+
+<section id="interactive-features" class="section" style="padding-top:1rem">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Explore Contextualized Features</h2>
+    <p style="max-width:850px;margin:0 auto 1.5rem;line-height:1.6">
+      Ad-hoc categories group images according to the context or goal at hand, rather than a single fixed taxonomy.
+      To study this context dependence, we use different ways of categorizing the same images: action, location,
+      or mood in Stanford-40, and shape, color, texture, or count in CLEVR-4. The plots below show how OAK
+      reorganizes image features for each context. Switch embedding maps to explore these changes,
+      and choose a labeling context to inspect the resulting groups.
+    </p>
+    <div class="embedding-grid">
+      <figure class="embedding-panel">
+        <h3 class="title is-5 has-text-centered">Stanford-40</h3>
+        <iframe src="static/interactive/stanford-embeddings.html" title="Stanford-40 interactive embeddings"></iframe>
+      </figure>
+      <figure class="embedding-panel">
+        <h3 class="title is-5 has-text-centered">CLEVR-4</h3>
+        <iframe src="static/interactive/clevr4-embeddings.html" title="CLEVR-4 interactive embeddings"></iframe>
+      </figure>
+    </div>
+    <p class="has-text-centered" style="font-size:0.95rem;line-height:1.5;margin-top:1rem">
+      Switch maps to see how the same images reorganize, and choose colors and markers independently.
+      <span style="white-space:nowrap"><span aria-hidden="true" style="color:#4776ad;font-size:1.2em">★</span> Known classes</span>;
+      <span style="white-space:nowrap"><span aria-hidden="true" style="color:#4776ad;font-size:1.2em">●</span> Novel classes</span>;
+      <span style="white-space:nowrap"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 20 20" style="vertical-align:-3px"><polygon points="10,1 12.2,7 18.5,7.2 13.5,11.2 15.3,17.5 10,13.8 4.7,17.5 6.5,11.2 1.5,7.2 7.8,7" fill="#4776ad" stroke="red" stroke-width="1.5"/></svg> Red outline: labeled examples</span>;
+      <span style="white-space:nowrap"><span aria-hidden="true" style="color:#bdbdbd;font-size:1.2em">●</span> Gray: missing context metadata</span>.
+      Motion interpolates between independently computed t-SNE maps.
+    </p>
+  </div>
+</section>
+<style>
+.embedding-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.embedding-panel{margin:0;min-width:0;container-type:inline-size}
+.embedding-panel iframe{display:block;width:100%;height:calc(100cqw + 160px);border:0}
+@media(max-width:767px){.embedding-grid{grid-template-columns:1fr}.embedding-panel{width:100%;max-width:550px;margin:auto}}
+</style>
 
 <!-- Paper abstract -->
 <section class="section hero is-light">
